@@ -17,14 +17,36 @@ const App = () => {
   const [cart, setCart] = useState([]);
   const [products, setProducts] = useState([]);
   const [search, setSearch] = useState({});
+  const [searchInput, setSearchInput] = useState({
+    attribute: "",
+    term: "",
+  });
 
   const updateProducts = (e) => setProducts(e.detail);
+
+  const searchFormHandlers = {
+    fetchInput: (e) =>
+      setSearchInput({
+        attribute: searchInput.attribute,
+        term: e.target.value,
+      }),
+    fetchAttrChange: (e) =>
+      setSearchInput({
+        attribute: e.target.value,
+        term: searchInput.term,
+      }),
+    searchNewProducts: (e) => {
+      e.preventDefault();
+      setSearch(searchInput);
+    },
+  };
 
   useEffect(() => {
     const { attribute = "albumTerm", term = "hymn" } = search;
 
+    console.log(attribute);
     fetchData(
-      `https://itunes.apple.com/search?media=music&entity=album&limit=25&term=${term}&attribute=${attribute}&callback=emitData`
+      `https://itunes.apple.com/search?media=music&entity=album&term=${term}&attribute=${attribute}&limit=50&callback=emitData`
     );
 
     window.addEventListener("newData", updateProducts);
@@ -39,12 +61,11 @@ const App = () => {
       <Switch>
         <Route path="/" exact>
           <Home />
-          {/* products.map((prod) => (
-            <div>{prod.title}</div>
-          )) */}
         </Route>
         <Route path="/shop">
-          <Shop />
+          <Shop
+            {...{ products, searchFormHandlers, input: searchInput.term }}
+          />
         </Route>
       </Switch>
       <Cart />

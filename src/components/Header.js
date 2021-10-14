@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link, NavLink } from "react-router-dom";
+import { Music } from "@styled-icons/crypto";
 import CartButton from "./CartButton";
 
 const StyledHeader = styled.header`
@@ -16,11 +17,13 @@ const Nav = styled("nav")`
   align-items: center;
 `;
 
-const Logo = styled(Link)`
+const Name = styled(Link)`
+  display: flex;
+  gap: 1rem;
   text-decoration: none;
   font-size: 3rem;
   color: inherit;
-  padding-right: 10rem;
+  margin-right: 10rem;
 `;
 
 const StyledLink = styled(NavLink)`
@@ -39,7 +42,10 @@ const Header = (props) => {
   return (
     <StyledHeader>
       <Nav>
-        <Logo to="/">hymn</Logo>
+        <Name to="/">
+          hymn
+          <Music style={{ width: "2.5rem" }} />
+        </Name>
 
         <StyledLink to="/" exact activeClassName="active">
           Home

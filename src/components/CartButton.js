@@ -16,17 +16,20 @@ const StyledCartButton = styled.button`
   border: 0;
   position: relative;
   &:hover {
-    background: grey;
+    background: #00adb5;
+    ::after {
+      background: #b01414;
+    }
   }
   ::after {
     position: absolute;
-    bottom: 0;
-    right: 0;
-    background: red;
+    bottom: -5px;
+    right: -5px;
+    background: #871d1d;
     border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    line-height: 20px;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
     font-size: 0.8rem;
     color: white;
     content: "${(props) => props.itemQuantity}";
