@@ -18,13 +18,16 @@ const StoreFront = styled.div`
 const arr = [1, 2, 3, 4, 57, 7, 8];
 
 const Shop = (props) => {
-  const { products, searchFormHandlers, input } = props;
+  const { products, addToCartHandler, searchFormHandlers, input } = props;
   return (
     <StyledShop>
       <SearchForm {...searchFormHandlers} input={input} />
       <StoreFront>
-        {products.map((product) => (
-          <AlbumCard {...{ album: product }} />
+        {products.map((product, index) => (
+          <AlbumCard
+            key={index}
+            {...{ album: product, addHandler: addToCartHandler, index }}
+          />
         ))}
       </StoreFront>
     </StyledShop>

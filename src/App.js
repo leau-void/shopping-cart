@@ -41,6 +41,12 @@ const App = () => {
     },
   };
 
+  const addToCartHandler = (e, index) => {
+    if (cart.includes(products[index])) return;
+    setCart([...cart, products[index]]);
+    console.log(cart);
+  };
+
   useEffect(() => {
     const { attribute = "albumTerm", term = "hymn" } = search;
 
@@ -57,6 +63,7 @@ const App = () => {
   return (
     <>
       <Header itemQuantity={cart.length} />
+      <Cart {...{ cart }} />
 
       <Switch>
         <Route path="/" exact>
@@ -64,11 +71,15 @@ const App = () => {
         </Route>
         <Route path="/shop">
           <Shop
-            {...{ products, searchFormHandlers, input: searchInput.term }}
+            {...{
+              products,
+              addToCartHandler,
+              searchFormHandlers,
+              input: searchInput.term,
+            }}
           />
         </Route>
       </Switch>
-      <Cart />
       <Footer />
     </>
   );

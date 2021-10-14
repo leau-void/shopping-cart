@@ -45,14 +45,16 @@ const AddCartButton = styled.button`
 `;
 
 const AlbumCard = (props) => {
-  const { album } = props;
+  const { album, addHandler, index } = props;
   return (
     <StyledCard>
       <Artwork {...{ url: album.artworkUrl100 }} />
       <AlbumName>{album.collectionName}</AlbumName>
       <ArtistName>{album.artistName}</ArtistName>
       <ItemPrice>${album.collectionPrice}</ItemPrice>
-      <AddCartButton>Add to bag</AddCartButton>
+      <AddCartButton onClick={(e) => addHandler(e, index)}>
+        Add to bag
+      </AddCartButton>
     </StyledCard>
   );
 };

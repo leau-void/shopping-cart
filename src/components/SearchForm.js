@@ -21,15 +21,23 @@ const SearchBar = styled.div`
 
 const SearchInput = styled.input.attrs(() => ({
   type: "search",
-  placeholder: "Search...",
+  placeholder: "Search Terms",
 }))`
   outline: none;
   padding: 0.5rem;
+  border-radius: 3px 0 0 3px;
+  border: 0;
 `;
 
 const Submit = styled.button.attrs(() => ({
   type: "submit",
-}))``;
+}))`
+  border: 0;
+  background: #00adb5;
+  color: #eeeeee;
+  border-radius: 0 3px 3px 0;
+  padding: 0.5rem;
+`;
 
 const SearchForm = (props) => {
   const { fetchInput, fetchAttrChange, searchNewProducts, input } = props;
@@ -44,7 +52,7 @@ const SearchForm = (props) => {
       </Select>
       <SearchBar>
         <SearchInput value={input} onInput={fetchInput} />
-        <Submit onClick={searchNewProducts}>Update my results</Submit>
+        <Submit onClick={searchNewProducts}>Search</Submit>
       </SearchBar>
     </Form>
   );
