@@ -37,6 +37,7 @@ const Submit = styled.button.attrs(() => ({
   color: #eeeeee;
   border-radius: 0 3px 3px 0;
   padding: 0.5rem;
+  cursor: pointer;
 `;
 
 const SearchForm = (props) => {

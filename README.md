@@ -8,3 +8,4 @@
 - [Fake Store API](https://fakestoreapi.com/)
 - [styled-components](https://styled-components.com/)
 - [styled-icons](https://github.com/styled-icons/styled-icons)
+- [Framer Motion](https://www.framer.com/motion/)

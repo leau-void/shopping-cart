@@ -8,6 +8,7 @@ const StyledFooter = styled.footer`
   text-align: center;
   padding: 5px 0;
   background: #00adb5;
+  order: 99;
 `;
 
 const StyledGithubLink = styled.a.attrs(() => ({

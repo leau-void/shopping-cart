@@ -47,13 +47,13 @@ const Header = (props) => {
           <Music style={{ width: "2.5rem" }} />
         </Name>
 
-        <StyledLink to="/" exact activeClassName="active">
+        <StyledLink to="/home" exact activeClassName="active">
           Home
         </StyledLink>
         <StyledLink to="/shop" activeClassName="active">
           Shop
         </StyledLink>
-        <CartButton itemQuantity={props.itemQuantity} />
+        <CartButton {...props} />
       </Nav>
     </StyledHeader>
   );

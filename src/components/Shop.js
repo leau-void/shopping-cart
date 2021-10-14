@@ -2,9 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import SearchForm from "./SearchForm";
 import AlbumCard from "./AlbumCard";
+import { motion } from "framer-motion";
 
-const StyledShop = styled.div`
+const StyledShop = styled(motion.div)`
   padding: 1rem;
+  position: relative;
+  z-index: -1;
+  order: 50;
 `;
 
 const StoreFront = styled.div`
@@ -15,12 +19,42 @@ const StoreFront = styled.div`
   padding: 1rem;
 `;
 
-const arr = [1, 2, 3, 4, 57, 7, 8];
+const ForwardedShop = React.forwardRef((props, ref) => (
+  <StyledShop ref={ref} {...props} />
+));
+const MotionShop = motion(ForwardedShop);
 
-const Shop = (props) => {
-  const { products, addToCartHandler, searchFormHandlers, input } = props;
+const shopVariant = {
+  initial: {
+    x: "100vw",
+    y: 0,
+  },
+  in: {
+    x: ["100vw", "0vw"],
+
+    transition: {
+      type: "tween",
+      duration: 1,
+      delay: 0.5,
+    },
+  },
+  out: {
+    x: "100vw",
+    transition: {
+      type: "tween",
+      duration: 0.5,
+    },
+  },
+};
+
+const Shop = ({ products, addToCartHandler, searchFormHandlers, input }) => {
   return (
-    <StyledShop>
+    <MotionShop
+      variants={shopVariant}
+      initial="initial"
+      animate="in"
+      exit="out"
+      key="shop">
       <SearchForm {...searchFormHandlers} input={input} />
       <StoreFront>
         {products.map((product, index) => (
@@ -30,7 +64,7 @@ const Shop = (props) => {
           />
         ))}
       </StoreFront>
-    </StyledShop>
+    </MotionShop>
   );
 };
 

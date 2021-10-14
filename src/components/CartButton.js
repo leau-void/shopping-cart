@@ -15,12 +15,15 @@ const StyledCartButton = styled.button`
   background: lightgray;
   border: 0;
   position: relative;
+  cursor: pointer;
+
   &:hover {
     background: #00adb5;
     ::after {
       background: #b01414;
     }
   }
+
   ::after {
     position: absolute;
     bottom: -5px;
@@ -36,10 +39,13 @@ const StyledCartButton = styled.button`
   }
 `;
 
-const CartButton = (props) => (
-  <StyledCartButton itemQuantity={props.itemQuantity} inputColor="blue">
-    <CartIcon />
-  </StyledCartButton>
-);
+const CartButton = (props) => {
+  const { itemQuantity, toggleCart } = props;
+  return (
+    <StyledCartButton {...{ itemQuantity }} onClick={toggleCart}>
+      <CartIcon />
+    </StyledCartButton>
+  );
+};
 
 export default CartButton;
