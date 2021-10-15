@@ -13,6 +13,7 @@ const StyledCard = styled.div`
   justify-content: flex-start;
   border-radius: 3px;
   align-items: center;
+  position: relative;
 `;
 
 const Artwork = styled.img.attrs((props) => ({

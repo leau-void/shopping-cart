@@ -44,22 +44,28 @@ const shopVariant = {
   },
 };
 
-const animation = keyframes`
-0% {
-  transform: translate(50%, 50%)
-}
-50% {
+// animate={{
+//                 x: [8, -6, 4, -2, 0],
+//                 transition: { delay: 0.2, duration: 1 },
+//               }}
 
-}
-100% {
-}
+const animation = keyframes`
+  form {
+    opacity: 1;
+    transform: translate(0, 0)
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-100vh) rotate(45deg);
+  }
 `;
 
 const animationRule = css`
-  ${animation} 1.5s forwards linear
+  ${animation} 1s ease-in normal forwards;
 `;
 
-const AddCartButton = styled(motion.button)`
+const AddCartButton = styled.button`
   padding: 0.5rem;
   border: 0;
   background: #393e46;
@@ -67,9 +73,10 @@ const AddCartButton = styled(motion.button)`
   border-radius: 3px;
   width: 100%;
   cursor: pointer;
-
   &.inCart {
     animation: ${animationRule};
+    transform-origin: bottom left;
+    width: 180px;
   }
 `;
 
@@ -87,10 +94,7 @@ const Shop = ({ products, searchFormHandlers, input }) => {
         {products.map((product, index) => (
           <AlbumCard key={index} {...{ album: product }}>
             <AddCartButton
-              animate={{
-                x: [8, -6, 4, -2, 0],
-                transition: { delay: 0.2, duration: 1 },
-              }}
+              className={checkIfInCart({ index }) ? "inCart" : ""}
               onClick={() => addToCartHandler({ index })}>
               Add to bag
             </AddCartButton>
