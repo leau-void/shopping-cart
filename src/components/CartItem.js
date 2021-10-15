@@ -4,7 +4,8 @@ import styled from "styled-components";
 const StyledItem = styled.div``;
 
 const CartItem = (props) => {
-  return <StyledItem></StyledItem>;
+  const { children } = props;
+  return <StyledItem>{children}</StyledItem>;
 };
 
 export default CartItem;

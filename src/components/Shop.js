@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import SearchForm from "./SearchForm";
 import AlbumCard from "./AlbumCard";
 import { motion } from "framer-motion";
@@ -43,6 +43,22 @@ const shopVariant = {
   },
 };
 
+const animation = keyframes`
+0% {
+  transform: rotateX(0deg)
+}
+50% {
+  transform: rotateX(180deg)
+}
+100% {
+  transform: rotateX(0deg)
+}
+`;
+
+const animationRule = css`
+  ${animation} 1s forwards linear
+`;
+
 const AddCartButton = styled(motion.button)`
   padding: 0.5rem;
   border: 0;
@@ -51,6 +67,10 @@ const AddCartButton = styled(motion.button)`
   border-radius: 3px;
   width: 100%;
   cursor: pointer;
+
+  &:active {
+    animation: ${animationRule};
+  }
 `;
 
 const Shop = ({ products, addToCartHandler, searchFormHandlers, input }) => {

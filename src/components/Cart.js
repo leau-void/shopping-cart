@@ -1,15 +1,21 @@
 import React from "react";
 import { motion } from "framer-motion";
-import styled from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import CartBg from "./CartBg";
 import CartItem from "./CartItem";
 
 const StyledCart = styled(motion.div)`
   height: 100vh;
-  width: 60vw;
+  width: 100vw;
   background: teal;
   position: fixed;
   z-index: 15;
+  @media (min-width: 550px) {
+    width: 60vw;
+  }
+  @media (min-width: 1080px) {
+    width: 40vw;
+  }
 `;
 
 const ForwardedCart = React.forwardRef((props, ref) => (
@@ -23,7 +29,7 @@ const cartVariant = {
     y: 0,
   },
   in: {
-    x: ["160vw", "40vw"],
+    x: ["160vw", "0vw"],
 
     transition: {
       type: "tween",
@@ -39,7 +45,23 @@ const cartVariant = {
   },
 };
 
-const Item = styled(AlbumCard)``;
+const CloseCartButton = styled.button``;
+
+const animation = keyframes`
+0% {
+  transform: rotateX(0deg)
+}
+50% {
+  transform: rotateX(180deg)
+}
+100% {
+  transform: rotateX(0deg)
+}
+`;
+
+const animationRule = css`
+  ${animation} 2s infinite alternate
+`;
 
 const RemoveButton = styled.button`
   border: 0;
@@ -47,6 +69,10 @@ const RemoveButton = styled.button`
   color: #eeeeee;
   padding: 5px;
   border-radius: 3px;
+
+  &:hover {
+    animation: ${animationRule};
+  }
 `;
 
 const Cart = (props) => {
@@ -68,12 +94,13 @@ const Cart = (props) => {
         {total}
 
         {cart.map((album, index) => (
-          <CartItem key={index} cart {...album}>
+          <CartItem key={index} {...album}>
             <RemoveButton onClick={() => removeFromCartHandler({ index })}>
               Remove
             </RemoveButton>
           </CartItem>
         ))}
+        <CloseCartButton onClick={toggleCart}>X</CloseCartButton>
       </MotionCart>
       <CartBg key="bg" {...{ toggleCart }} />
     </>

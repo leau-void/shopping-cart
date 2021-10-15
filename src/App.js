@@ -9,6 +9,7 @@ import { React, useEffect, useState } from "react";
 import fetchData from "./scripts/fetchData";
 import emitData from "./scripts/emitData";
 import { AnimatePresence } from "framer-motion";
+import CartContext, { CartProvider } from "./context/CartContext";
 
 window.emitData = emitData;
 
@@ -70,7 +71,7 @@ const App = () => {
 
   // key={location.pathname} location={location}
   return (
-    <>
+    <CartProvider value={cart}>
       <Header itemQuantity={cart.length} {...{ toggleCart }} />
       <AnimatePresence>
         {isCartOpen && (
@@ -96,7 +97,7 @@ const App = () => {
       </AnimatePresence>
 
       <Footer />
-    </>
+    </CartProvider>
   );
 };
 
