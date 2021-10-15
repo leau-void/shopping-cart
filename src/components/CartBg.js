@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import { motion } from "framer-motion";
 import styled from "styled-components";
+import CartContext from "../context/CartContext";
 
 const StyledBg = styled(motion.div)`
   height: 100vh;
@@ -38,14 +39,18 @@ const bgVariant = {
   },
 };
 
-const CartBg = (props) => (
-  <MotionBg
-    onClick={props.toggleCart}
-    variants={bgVariant}
-    initial="initial"
-    animate="in"
-    exit="out"
-  />
-);
+const CartBg = () => {
+  const { toggleCart } = useContext(CartContext);
+
+  return (
+    <MotionBg
+      onClick={toggleCart}
+      variants={bgVariant}
+      initial="initial"
+      animate="in"
+      exit="out"
+    />
+  );
+};
 
 export default CartBg;

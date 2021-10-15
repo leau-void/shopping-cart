@@ -1,6 +1,7 @@
-import { React } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { Bag } from "@styled-icons/bootstrap";
+import CartContext from "../context/CartContext";
 
 const CartIcon = styled(Bag)`
   width: 30px;
@@ -40,9 +41,10 @@ const StyledCartButton = styled.button`
 `;
 
 const CartButton = (props) => {
-  const { itemQuantity, toggleCart } = props;
+  const { cart, toggleCart } = useContext(CartContext);
+
   return (
-    <StyledCartButton {...{ itemQuantity }} onClick={toggleCart}>
+    <StyledCartButton {...{ itemQuantity: cart.length }} onClick={toggleCart}>
       <CartIcon />
     </StyledCartButton>
   );

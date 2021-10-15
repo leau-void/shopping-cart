@@ -57,7 +57,7 @@ const Header = (props) => {
         <StyledLink to="/shop" activeClassName="active">
           Shop
         </StyledLink>
-        <CartButton {...props} />
+        <CartButton />
       </Nav>
     </StyledHeader>
   );

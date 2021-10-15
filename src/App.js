@@ -5,11 +5,11 @@ import Shop from "./components/Shop";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import "./App.css";
-import { React, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import fetchData from "./scripts/fetchData";
 import emitData from "./scripts/emitData";
 import { AnimatePresence } from "framer-motion";
-import CartContext, { CartProvider } from "./context/CartContext";
+import { CartProvider } from "./context/CartContext";
 
 window.emitData = emitData;
 
@@ -42,8 +42,10 @@ const App = () => {
     },
   };
 
+  const checkIfInCart = ({ index }) => cart.includes(products[index]);
+
   const addToCartHandler = ({ index }) => {
-    if (cart.includes(products[index])) return;
+    if (checkIfInCart({ index })) return;
     setCart([...cart, products[index]]);
   };
 
@@ -61,7 +63,7 @@ const App = () => {
     const { attribute = "albumTerm", term = "hymn" } = search;
 
     fetchData(
-      `https://itunes.apple.com/search?media=music&entity=album&term=${term}&attribute=${attribute}&limit=50&callback=emitData`
+      `https://itunes.apple.com/search?media=music&entity=album&limit=25&term=${term}&attribute=${attribute}&callback=emitData`
     );
 
     window.addEventListener("newData", updateProducts);
@@ -69,15 +71,17 @@ const App = () => {
     return () => window.removeEventListener("newData", updateProducts);
   }, [search]);
 
-  // key={location.pathname} location={location}
   return (
-    <CartProvider value={cart}>
-      <Header itemQuantity={cart.length} {...{ toggleCart }} />
-      <AnimatePresence>
-        {isCartOpen && (
-          <Cart {...{ cart, toggleCart, removeFromCartHandler }} />
-        )}
-      </AnimatePresence>
+    <CartProvider
+      value={{
+        cart,
+        toggleCart,
+        checkIfInCart,
+        addToCartHandler,
+        removeFromCartHandler,
+      }}>
+      <Header />
+      <AnimatePresence>{isCartOpen && <Cart />}</AnimatePresence>
       <AnimatePresence exitBeforeEnter>
         <Switch key={location.pathname} location={location}>
           <Route path="/" exact>
@@ -87,7 +91,6 @@ const App = () => {
             <Shop
               {...{
                 products,
-                addToCartHandler,
                 searchFormHandlers,
                 input: searchInput.term,
               }}

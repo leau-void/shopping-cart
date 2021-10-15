@@ -41,8 +41,12 @@ const Submit = styled.button.attrs(() => ({
   cursor: pointer;
 `;
 
-const SearchForm = (props) => {
-  const { fetchInput, fetchAttrChange, searchNewProducts, input } = props;
+const SearchForm = ({
+  fetchInput,
+  fetchAttrChange,
+  searchNewProducts,
+  input,
+}) => {
   return (
     <Form>
       <label>Search by</label>

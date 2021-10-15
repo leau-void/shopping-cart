@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled, { css, keyframes } from "styled-components";
 import SearchForm from "./SearchForm";
 import AlbumCard from "./AlbumCard";
 import { motion } from "framer-motion";
+import CartContext from "../context/CartContext";
 
 const StyledShop = styled(motion.div)`
   padding: 1rem;
@@ -45,18 +46,17 @@ const shopVariant = {
 
 const animation = keyframes`
 0% {
-  transform: rotateX(0deg)
+  transform: translate(50%, 50%)
 }
 50% {
-  transform: rotateX(180deg)
+
 }
 100% {
-  transform: rotateX(0deg)
 }
 `;
 
 const animationRule = css`
-  ${animation} 1s forwards linear
+  ${animation} 1.5s forwards linear
 `;
 
 const AddCartButton = styled(motion.button)`
@@ -68,12 +68,13 @@ const AddCartButton = styled(motion.button)`
   width: 100%;
   cursor: pointer;
 
-  &:active {
+  &.inCart {
     animation: ${animationRule};
   }
 `;
 
-const Shop = ({ products, addToCartHandler, searchFormHandlers, input }) => {
+const Shop = ({ products, searchFormHandlers, input }) => {
+  const { checkIfInCart, addToCartHandler } = useContext(CartContext);
   return (
     <MotionShop
       variants={shopVariant}

@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { motion } from "framer-motion";
 import styled, { css, keyframes } from "styled-components";
 import CartBg from "./CartBg";
 import CartItem from "./CartItem";
+import CartContext from "../context/CartContext";
 
 const StyledCart = styled(motion.div)`
   height: 100vh;
@@ -76,7 +77,8 @@ const RemoveButton = styled.button`
 `;
 
 const Cart = (props) => {
-  const { cart, toggleCart, removeFromCartHandler } = props;
+  const { cart, toggleCart, removeFromCartHandler } = useContext(CartContext);
+
   const total = cart.reduce(
     (acc, currentItem) => acc + currentItem.collectionPrice,
     0
@@ -102,7 +104,7 @@ const Cart = (props) => {
         ))}
         <CloseCartButton onClick={toggleCart}>X</CloseCartButton>
       </MotionCart>
-      <CartBg key="bg" {...{ toggleCart }} />
+      <CartBg key="bg" />
     </>
   );
 };
