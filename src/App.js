@@ -1,17 +1,14 @@
-import { Switch, Route, useLocation, Redirect } from "react-router";
+import { Switch, Route, useLocation } from "react-router";
 import Home from "./components/Home";
 import Cart from "./components/Cart";
 import Shop from "./components/Shop";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Main from "./components/Main";
 import "./App.css";
 import { React, useEffect, useState } from "react";
-import styled from "styled-components";
-import { Bag, BagCheck, BagDash, BagPlus, BagX } from "@styled-icons/bootstrap";
 import fetchData from "./scripts/fetchData";
 import emitData from "./scripts/emitData";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 
 window.emitData = emitData;
 
@@ -44,9 +41,13 @@ const App = () => {
     },
   };
 
-  const addToCartHandler = (e, index) => {
+  const addToCartHandler = ({ index }) => {
     if (cart.includes(products[index])) return;
     setCart([...cart, products[index]]);
+  };
+
+  const removeFromCartHandler = ({ index }) => {
+    setCart([...cart.slice(0, index), ...cart.slice(index + 1)]);
   };
 
   const toggleCart = () => {
@@ -72,11 +73,13 @@ const App = () => {
     <>
       <Header itemQuantity={cart.length} {...{ toggleCart }} />
       <AnimatePresence>
-        {isCartOpen && <Cart {...{ cart, toggleCart }} />}
+        {isCartOpen && (
+          <Cart {...{ cart, toggleCart, removeFromCartHandler }} />
+        )}
       </AnimatePresence>
       <AnimatePresence exitBeforeEnter>
         <Switch key={location.pathname} location={location}>
-          <Route path="/home" exact>
+          <Route path="/" exact>
             <Home />
           </Route>
           <Route path="/shop">

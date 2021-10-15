@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import styled from "styled-components";
 import CartBg from "./CartBg";
+import CartItem from "./CartItem";
 
 const StyledCart = styled(motion.div)`
   height: 100vh;
-  width: 40vw;
+  width: 60vw;
   background: teal;
   position: fixed;
   z-index: 15;
@@ -18,11 +19,11 @@ const MotionCart = motion(ForwardedCart);
 
 const cartVariant = {
   initial: {
-    x: "100vw",
+    x: "160vw",
     y: 0,
   },
   in: {
-    x: ["140vw", "60vw"],
+    x: ["160vw", "40vw"],
 
     transition: {
       type: "tween",
@@ -30,7 +31,7 @@ const cartVariant = {
     },
   },
   out: {
-    x: "140vw",
+    x: "160vw",
     transition: {
       type: "tween",
       duration: 0.45,
@@ -38,8 +39,18 @@ const cartVariant = {
   },
 };
 
+const Item = styled(AlbumCard)``;
+
+const RemoveButton = styled.button`
+  border: 0;
+  background: #222831;
+  color: #eeeeee;
+  padding: 5px;
+  border-radius: 3px;
+`;
+
 const Cart = (props) => {
-  const { cart, toggleCart } = props;
+  const { cart, toggleCart, removeFromCartHandler } = props;
   const total = cart.reduce(
     (acc, currentItem) => acc + currentItem.collectionPrice,
     0
@@ -52,9 +63,17 @@ const Cart = (props) => {
         initial="initial"
         animate="in"
         exit="out"
-        key="cart">
-        ayy
+        key="cart"
+        className="cart">
         {total}
+
+        {cart.map((album, index) => (
+          <CartItem key={index} cart {...album}>
+            <RemoveButton onClick={() => removeFromCartHandler({ index })}>
+              Remove
+            </RemoveButton>
+          </CartItem>
+        ))}
       </MotionCart>
       <CartBg key="bg" {...{ toggleCart }} />
     </>

@@ -47,7 +47,7 @@ const Header = (props) => {
           <Music style={{ width: "2.5rem" }} />
         </Name>
 
-        <StyledLink to="/home" exact activeClassName="active">
+        <StyledLink to="/" exact activeClassName="active">
           Home
         </StyledLink>
         <StyledLink to="/shop" activeClassName="active">

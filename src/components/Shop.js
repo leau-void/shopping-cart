@@ -43,6 +43,16 @@ const shopVariant = {
   },
 };
 
+const AddCartButton = styled(motion.button)`
+  padding: 0.5rem;
+  border: 0;
+  background: #393e46;
+  color: #eeeeee;
+  border-radius: 3px;
+  width: 100%;
+  cursor: pointer;
+`;
+
 const Shop = ({ products, addToCartHandler, searchFormHandlers, input }) => {
   return (
     <MotionShop
@@ -54,10 +64,16 @@ const Shop = ({ products, addToCartHandler, searchFormHandlers, input }) => {
       <SearchForm {...searchFormHandlers} input={input} />
       <StoreFront>
         {products.map((product, index) => (
-          <AlbumCard
-            key={index}
-            {...{ album: product, addHandler: addToCartHandler, index }}
-          />
+          <AlbumCard key={index} {...{ album: product }}>
+            <AddCartButton
+              animate={{
+                x: [8, -6, 4, -2, 0],
+                transition: { delay: 0.2, duration: 1 },
+              }}
+              onClick={() => addToCartHandler({ index })}>
+              Add to bag
+            </AddCartButton>
+          </AlbumCard>
         ))}
       </StoreFront>
     </MotionShop>
