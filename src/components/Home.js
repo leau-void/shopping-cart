@@ -4,9 +4,7 @@ import { motion } from "framer-motion";
 
 const StyledHome = styled(motion.div)`
   background: red;
-  position: relative;
-  z-index: -1;
-  order: 1;
+  height: 100vh;
 `;
 
 const ForwardedHome = React.forwardRef((props, ref) => (
@@ -23,15 +21,14 @@ const homeVariant = {
     x: ["-100vw", "0vw"],
     transition: {
       type: "tween",
-      duration: 1,
-      delay: 0.5,
+      duration: 0.3,
     },
   },
   out: {
     x: "-100vw",
     transition: {
       type: "tween",
-      duration: 0.5,
+      duration: 0.3,
     },
   },
 };

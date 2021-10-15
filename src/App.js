@@ -49,7 +49,9 @@ const App = () => {
     setCart([...cart, products[index]]);
   };
 
-  const toggleCart = () => setIsCartOpen(!isCartOpen);
+  const toggleCart = () => {
+    setIsCartOpen(!isCartOpen);
+  };
 
   const location = useLocation();
 
@@ -70,7 +72,9 @@ const App = () => {
     <>
       <Header itemQuantity={cart.length} {...{ toggleCart }} />
       <AnimatePresence>
-        {isCartOpen ? <Cart {...{ cart }} /> : null}
+        {isCartOpen && <Cart {...{ cart, toggleCart }} />}
+      </AnimatePresence>
+      <AnimatePresence exitBeforeEnter>
         <Switch key={location.pathname} location={location}>
           <Route path="/home" exact>
             <Home />

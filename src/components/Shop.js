@@ -6,9 +6,6 @@ import { motion } from "framer-motion";
 
 const StyledShop = styled(motion.div)`
   padding: 1rem;
-  position: relative;
-  z-index: -1;
-  order: 50;
 `;
 
 const StoreFront = styled.div`
@@ -34,15 +31,14 @@ const shopVariant = {
 
     transition: {
       type: "tween",
-      duration: 1,
-      delay: 0.5,
+      duration: 0.3,
     },
   },
   out: {
     x: "100vw",
     transition: {
       type: "tween",
-      duration: 0.5,
+      duration: 0.3,
     },
   },
 };
