@@ -4,6 +4,10 @@ import SearchForm from "./SearchForm";
 import AlbumCard from "./AlbumCard";
 import { motion } from "framer-motion";
 import CartContext from "../context/CartContext";
+import {
+  animationRuleAddToCartButtonEnter,
+  animationRuleAddToCartButtonExit,
+} from "../scripts/animations";
 
 const StyledShop = styled(motion.div)`
   padding: 1rem;
@@ -44,39 +48,28 @@ const shopVariant = {
   },
 };
 
-// animate={{
-//                 x: [8, -6, 4, -2, 0],
-//                 transition: { delay: 0.2, duration: 1 },
-//               }}
-
-const animation = keyframes`
-  form {
-    opacity: 1;
-    transform: translate(0, 0)
-  }
-
-  to {
-    opacity: 0;
-    transform: translateY(-100vh) rotate(45deg);
-  }
-`;
-
-const animationRule = css`
-  ${animation} 1s ease-in normal forwards;
-`;
-
 const AddCartButton = styled.button`
   padding: 0.5rem;
   border: 0;
   background: #393e46;
+  background: linear-gradient(#393e46 50%, #007980 50%);
+  background-size: 100% 200%;
   color: #eeeeee;
   border-radius: 3px;
   width: 100%;
   cursor: pointer;
+  animation: ${animationRuleAddToCartButtonEnter};
+  transition: background-position 0.3s linear;
+
+  &:hover {
+    background-position-y: 100%;
+  }
+
   &.inCart {
-    animation: ${animationRule};
+    animation: ${animationRuleAddToCartButtonExit};
+    background-position-y: 100%;
     transform-origin: bottom left;
-    width: 180px;
+    width: 160px;
   }
 `;
 

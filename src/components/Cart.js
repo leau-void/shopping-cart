@@ -30,7 +30,7 @@ const cartVariant = {
     y: 0,
   },
   in: {
-    x: ["160vw", "0vw"],
+    x: ["160vw", "40vw"],
 
     transition: {
       type: "tween",
