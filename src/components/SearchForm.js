@@ -8,6 +8,7 @@ const Form = styled.form`
   width: fit-content;
   margin: 0 auto;
   flex-wrap: wrap;
+  justify-content: center;
 `;
 
 const Select = styled.select`

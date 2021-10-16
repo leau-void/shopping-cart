@@ -1,5 +1,40 @@
 import styled, { css, keyframes } from "styled-components";
 
+const animationVisitShopEnter = keyframes`
+0% {
+  right:300px;
+}
+100% {
+  right: 1rem;
+}
+`;
+
+const animationVisitShopColor = keyframes`
+0% {
+  color: #eeeeee;
+}
+33% {
+  color: #393E46;
+}
+40% {
+  color: #393E46;
+}
+66% {
+  color: #00dae6;
+}
+72% {
+  color: #00dae6;
+}
+100% {
+  color: #222831;
+}
+`;
+
+const animationRuleVisitShop = css`
+  ${animationVisitShopEnter} 1s ease-out forwards,
+    ${animationVisitShopColor} 2s alternate 0.8s infinite
+`;
+
 const animationAddToCartButtonEnter = keyframes`
   25% {
     transform: translateX(6%)
@@ -113,4 +148,5 @@ export {
   animationRuleCloseCart,
   animationRuleOpenCartBg,
   animationRuleCloseCartBg,
+  animationRuleVisitShop,
 };
