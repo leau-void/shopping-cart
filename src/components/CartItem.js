@@ -2,15 +2,14 @@ import React from "react";
 import styled from "styled-components";
 
 const StyledItem = styled.div`
-  width: 95%;
-  max-width: 95%;
-  min-height: 300px;
+  width: 100%;
+  min-height: 200px;
   padding: 1rem;
   gap: 0.5rem;
   display: flex;
   flex-direction: row;
-  background: rgba(0, 173, 181, 0.15);
-  justify-content: flex-start;
+  border-bottom: 2px solid #00adb5;
+  justify-content: space-between;
   border-radius: 3px;
   align-items: center;
   position: relative;
@@ -19,12 +18,14 @@ const StyledItem = styled.div`
 const WrapColumn = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
+  align-self: stretch;
 `;
 
 const Artwork = styled.img.attrs((props) => ({
   src: props.url,
 }))`
-  width: min(30%, 150px);
+  width: 100px;
 `;
 
 const AlbumName = styled.div`
@@ -37,8 +38,7 @@ const ArtistName = styled.div`
 `;
 
 const ItemPrice = styled.div`
-  margin-top: auto;
-  align-self: start;
+  align-self: center;
 `;
 
 const CartItem = ({ album, children }) => {

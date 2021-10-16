@@ -55,19 +55,19 @@ const animationRuleRemoveFromCartButton = css`
 
 const animationOpenCart = keyframes`
 0% {
-  transform: translateX(calc(100vw + 100%))
+  right: -100%;
 }
 100% {
-  transform: translateX(calc(100vw - 100%));
+  right: 0;
 }
 `;
 
 const animationCloseCart = keyframes`
 0% {
-  transform: translateX(calc(100vw - 100%));
+  right: 0;
 }
 100% {
-  transform: translateX(calc(100vw + 100%))
+  right: -100%;
 }
 `;
 
@@ -81,19 +81,19 @@ const animationRuleCloseCart = css`
 
 const animationOpenCartBg = keyframes`
 0% {
-  transform: translateX(calc(-100vw - 100%))
+  left: -100%;
 }
 100% {
-  transform: translateX(0vw);
+  left: 0;
 }
 `;
 
 const animationCloseCartBg = keyframes`
 0% {
-  transform: translateX(0vw);
+  left: 0;
 }
 100% {
-  transform: translateX(calc(-100vw - 100%))
+  left: -100%;
 }
 `;
 

@@ -11,6 +11,7 @@ import {
 
 const StyledShop = styled(motion.div)`
   padding: 1rem;
+  max-width: 100vw;
 `;
 
 const StoreFront = styled.div`
@@ -59,7 +60,7 @@ const AddCartButton = styled.button`
   width: 100%;
   cursor: pointer;
   animation: ${animationRuleAddToCartButtonEnter};
-  transition: background-position 0.3s linear;
+  transition: background-position 0.15s linear;
 
   &:hover {
     background-position-y: 101%;

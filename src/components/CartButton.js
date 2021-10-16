@@ -41,6 +41,7 @@ const StyledCartButton = styled.button`
     font-size: 0.8rem;
     color: white;
     content: "${(props) => props.itemQuantity}";
+    transition: background 0.5s linear;
   }
 `;
 
