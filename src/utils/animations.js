@@ -37,4 +37,24 @@ const animationRuleAddToCartButtonExit = css`
   ${animationAddToCartButtonExit} 1s ease-in normal forwards;
 `;
 
-export { animationRuleAddToCartButtonEnter, animationRuleAddToCartButtonExit };
+const animationRemoveFromCartButton = keyframes`
+0% {
+  transform: rotateX(0deg)
+}
+50% {
+  transform: rotateX(180deg)
+}
+100% {
+  transform: rotateX(0deg)
+}
+`;
+
+const animationRuleRemoveFromCartButton = css`
+  ${animationRemoveFromCartButton} 2s infinite alternate
+`;
+
+export {
+  animationRuleAddToCartButtonEnter,
+  animationRuleAddToCartButtonExit,
+  animationRuleRemoveFromCartButton,
+};

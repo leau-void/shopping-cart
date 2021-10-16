@@ -1,11 +1,13 @@
 import React, { useContext } from "react";
 import { motion } from "framer-motion";
-import styled, { css, keyframes } from "styled-components";
+import styled from "styled-components";
 import CartBg from "./CartBg";
 import CartItem from "./CartItem";
 import CartContext from "../context/CartContext";
+import { animationRuleRemoveFromCartButton } from "../utils/animations";
+import Animate from "../utils/Animate";
 
-const StyledCart = styled(motion.div)`
+const StyledCart = styled("div")`
   height: 100vh;
   width: 100vw;
   background: teal;
@@ -48,22 +50,6 @@ const cartVariant = {
 
 const CloseCartButton = styled.button``;
 
-const animation = keyframes`
-0% {
-  transform: rotateX(0deg)
-}
-50% {
-  transform: rotateX(180deg)
-}
-100% {
-  transform: rotateX(0deg)
-}
-`;
-
-const animationRule = css`
-  ${animation} 2s infinite alternate
-`;
-
 const RemoveButton = styled.button`
   border: 0;
   background: #222831;
@@ -72,11 +58,11 @@ const RemoveButton = styled.button`
   border-radius: 3px;
 
   &:hover {
-    animation: ${animationRule};
+    animation: ${animationRuleRemoveFromCartButton};
   }
 `;
 
-const Cart = (props) => {
+const Cart = ({ doOpen }) => {
   const { cart, toggleCart, removeFromCartHandler } = useContext(CartContext);
 
   const total = cart.reduce(
@@ -85,14 +71,8 @@ const Cart = (props) => {
   );
 
   return (
-    <>
-      <MotionCart
-        variants={cartVariant}
-        initial="initial"
-        animate="in"
-        exit="out"
-        key="cart"
-        className="cart">
+    <Animate {...{ doOpen }}>
+      <StyledCart className="cart">
         {total}
 
         {cart.map((album, index) => (
@@ -103,9 +83,9 @@ const Cart = (props) => {
           </CartItem>
         ))}
         <CloseCartButton onClick={toggleCart}>X</CloseCartButton>
-      </MotionCart>
+      </StyledCart>
       <CartBg key="bg" />
-    </>
+    </Animate>
   );
 };
 

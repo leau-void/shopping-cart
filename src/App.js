@@ -81,7 +81,7 @@ const App = () => {
         removeFromCartHandler,
       }}>
       <Header />
-      <AnimatePresence>{isCartOpen && <Cart />}</AnimatePresence>
+      <Cart {...{ doOpen: isCartOpen }} />
       <AnimatePresence exitBeforeEnter>
         <Switch key={location.pathname} location={location}>
           <Route path="/" exact>
