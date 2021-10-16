@@ -30,6 +30,15 @@ const Name = styled(Link)`
   }
 `;
 
+const Logo = styled(Music)`
+  width: 2.5rem;
+  transition: color 0.3s ease-out;
+
+  .shopName:hover & {
+    color: #00adb5;
+  }
+`;
+
 const StyledLink = styled(NavLink)`
   color: inherit;
   padding: 5px;
@@ -39,6 +48,9 @@ const StyledLink = styled(NavLink)`
   }
   &.active  {
     border-bottom: 2px solid #eeeeee;
+    :hover {
+      border-color: #00adb5;
+    }
   }
 `;
 
@@ -46,9 +58,9 @@ const Header = (props) => {
   return (
     <StyledHeader>
       <Nav>
-        <Name to="/">
+        <Name className="shopName" to="/">
           hymn
-          <Music style={{ width: "2.5rem" }} />
+          <Logo />
         </Name>
 
         <StyledLink to="/" exact activeClassName="active">

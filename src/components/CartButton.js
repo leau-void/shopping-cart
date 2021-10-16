@@ -17,9 +17,13 @@ const StyledCartButton = styled.button`
   border: 0;
   position: relative;
   cursor: pointer;
+  background: radial-gradient(#b9bec6 50%, #00adb5 50%);
+  background-size: 200% 200%;
+  background-position: 50% 50%;
+  transition: background-position 0.5s linear;
 
   &:hover {
-    background: #00adb5;
+    background-position: -30% -30%;
     ::after {
       background: #b01414;
     }

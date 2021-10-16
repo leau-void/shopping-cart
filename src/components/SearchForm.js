@@ -12,6 +12,14 @@ const Form = styled.form`
 
 const Select = styled.select`
   padding: 0.5rem;
+  outline: 0;
+  border: 2px solid #393e46;
+  transition: border-color 0.2s;
+  background: #eeeeee;
+
+  &:active {
+    border-color: #00adb5;
+  }
 `;
 
 const Option = styled.option``;
@@ -28,6 +36,14 @@ const SearchInput = styled.input.attrs(() => ({
   padding: 0.5rem;
   border-radius: 3px 0 0 3px;
   border: 0;
+  border: 2px solid #393e46;
+  border-right: 0;
+  transition: border-color 0.2s;
+  background: #eeeeee;
+
+  &:focus {
+    border-color: #00adb5;
+  }
 `;
 
 const Submit = styled.button.attrs(() => ({
@@ -35,10 +51,18 @@ const Submit = styled.button.attrs(() => ({
 }))`
   border: 0;
   background: #00adb5;
+  background: linear-gradient(90deg, #222831 50%, #00adb5 50%);
+  background-size: 220% 100%;
+  background-position-x: 99%;
   color: #eeeeee;
   border-radius: 0 3px 3px 0;
   padding: 0.5rem;
   cursor: pointer;
+  transition: background 0.2s linear;
+
+  &:hover {
+    background-position-x: 0%;
+  }
 `;
 
 const SearchForm = ({

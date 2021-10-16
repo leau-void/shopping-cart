@@ -40,14 +40,14 @@ const ItemPrice = styled.div`
   align-self: start;
 `;
 
-const AlbumCard = (props) => {
-  const { album, children } = props;
+const AlbumCard = ({ album, children }) => {
+  const { artworkUrl100, collectionName, artistName, collectionPrice } = album;
   return (
     <StyledCard>
-      <Artwork {...{ url: album.artworkUrl100 }} />
-      <AlbumName>{album.collectionName}</AlbumName>
-      <ArtistName>{album.artistName}</ArtistName>
-      <ItemPrice>${album.collectionPrice}</ItemPrice>
+      <Artwork {...{ url: artworkUrl100 }} />
+      <AlbumName>{collectionName}</AlbumName>
+      <ArtistName>{artistName}</ArtistName>
+      <ItemPrice>${collectionPrice}</ItemPrice>
       {children}
     </StyledCard>
   );

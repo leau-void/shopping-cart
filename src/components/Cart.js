@@ -11,10 +11,11 @@ import {
 import Animate from "../utils/Animate";
 
 const StyledCart = styled("div")`
-  height: 100vh;
+  height: fit-content;
+  min-height: 100vh;
   width: 100vw;
   background: teal;
-  position: fixed;
+  position: absolute;
   z-index: 15;
   animation: ${animationRuleOpenCart};
 
@@ -24,9 +25,11 @@ const StyledCart = styled("div")`
 
   @media (min-width: 550px) {
     width: 60vw;
+    border-radius: 0 0 0 5px;
   }
   @media (min-width: 1080px) {
     width: 40vw;
+    border-radius: 0 0 0 5px;
   }
 `;
 
@@ -47,16 +50,15 @@ const RemoveButton = styled.button`
 const Cart = ({ doOpen }) => {
   const { cart, toggleCart, removeFromCartHandler } = useContext(CartContext);
 
-  const total = cart.reduce(
-    (acc, currentItem) => acc + currentItem.collectionPrice,
-    0
-  );
+  const total = cart
+    .reduce((acc, currentItem) => acc + currentItem.collectionPrice, 0)
+    .toFixed(2);
 
   return (
     <Animate {...{ doOpen, animationDuration: 700 }}>
       <StyledCart>
         {cart.map((album, index) => (
-          <CartItem key={index} {...album}>
+          <CartItem key={index} {...{ album }}>
             <RemoveButton onClick={() => removeFromCartHandler({ index })}>
               Remove
             </RemoveButton>

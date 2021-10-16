@@ -53,7 +53,7 @@ const AddCartButton = styled.button`
   border: 0;
   background: #393e46;
   background: linear-gradient(#393e46 50%, #007980 50%);
-  background-size: 100% 200%;
+  background-size: 100% 202%;
   color: #eeeeee;
   border-radius: 3px;
   width: 100%;
@@ -62,7 +62,7 @@ const AddCartButton = styled.button`
   transition: background-position 0.3s linear;
 
   &:hover {
-    background-position-y: 100%;
+    background-position-y: 101%;
   }
 
   &.inCart {
