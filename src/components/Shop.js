@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import styled, { css, keyframes } from "styled-components";
+import styled from "styled-components";
 import SearchForm from "./SearchForm";
 import AlbumCard from "./AlbumCard";
 import { motion } from "framer-motion";
@@ -7,7 +7,7 @@ import CartContext from "../context/CartContext";
 import {
   animationRuleAddToCartButtonEnter,
   animationRuleAddToCartButtonExit,
-} from "../scripts/animations";
+} from "../utils/animations";
 
 const StyledShop = styled(motion.div)`
   padding: 1rem;

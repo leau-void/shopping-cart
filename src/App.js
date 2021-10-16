@@ -6,8 +6,8 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import "./App.css";
 import React, { useEffect, useState } from "react";
-import fetchData from "./scripts/fetchData";
-import emitData from "./scripts/emitData";
+import fetchData from "./utils/fetchData";
+import emitData from "./utils/emitData";
 import { AnimatePresence } from "framer-motion";
 import { CartProvider } from "./context/CartContext";
 
