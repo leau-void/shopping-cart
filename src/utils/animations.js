@@ -53,8 +53,36 @@ const animationRuleRemoveFromCartButton = css`
   ${animationRemoveFromCartButton} 2s infinite alternate
 `;
 
+const animationOpenCart = keyframes`
+0% {
+  transform: translateX(calc(100vw + 100%))
+}
+100% {
+  transform: translateX(calc(100vw - 100%));
+}
+`;
+
+const animationCloseCart = keyframes`
+0% {
+  transform: translateX(calc(100vw - 100%));
+}
+100% {
+  transform: translateX(calc(100vw + 100%))
+}
+`;
+
+const animationRuleOpenCart = css`
+  ${animationOpenCart} 0.5s ease-in-out forwards
+`;
+
+const animationRuleCloseCart = css`
+  ${animationCloseCart} 0.5s ease-in-out forwards
+`;
+
 export {
   animationRuleAddToCartButtonEnter,
   animationRuleAddToCartButtonExit,
   animationRuleRemoveFromCartButton,
+  animationRuleOpenCart,
+  animationRuleCloseCart,
 };

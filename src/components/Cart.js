@@ -4,7 +4,11 @@ import styled from "styled-components";
 import CartBg from "./CartBg";
 import CartItem from "./CartItem";
 import CartContext from "../context/CartContext";
-import { animationRuleRemoveFromCartButton } from "../utils/animations";
+import {
+  animationRuleRemoveFromCartButton,
+  animationRuleOpenCart,
+  animationRuleCloseCart,
+} from "../utils/animations";
 import Animate from "../utils/Animate";
 
 const StyledCart = styled("div")`
@@ -13,6 +17,12 @@ const StyledCart = styled("div")`
   background: teal;
   position: fixed;
   z-index: 15;
+  animation: ${animationRuleOpenCart};
+
+  &.closing {
+    animation: ${animationRuleCloseCart};
+  }
+
   @media (min-width: 550px) {
     width: 60vw;
   }
@@ -71,7 +81,7 @@ const Cart = ({ doOpen }) => {
   );
 
   return (
-    <Animate {...{ doOpen }}>
+    <Animate {...{ doOpen, animationDuration: 500 }}>
       <StyledCart className="cart">
         {total}
 
