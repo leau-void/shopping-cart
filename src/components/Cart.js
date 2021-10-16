@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { motion } from "framer-motion";
 import styled from "styled-components";
 import CartBg from "./CartBg";
 import CartItem from "./CartItem";
@@ -31,33 +30,6 @@ const StyledCart = styled("div")`
   }
 `;
 
-const ForwardedCart = React.forwardRef((props, ref) => (
-  <StyledCart ref={ref} {...props} />
-));
-const MotionCart = motion(ForwardedCart);
-
-const cartVariant = {
-  initial: {
-    x: "160vw",
-    y: 0,
-  },
-  in: {
-    x: ["160vw", "40vw"],
-
-    transition: {
-      type: "tween",
-      duration: 0.45,
-    },
-  },
-  out: {
-    x: "160vw",
-    transition: {
-      type: "tween",
-      duration: 0.45,
-    },
-  },
-};
-
 const CloseCartButton = styled.button``;
 
 const RemoveButton = styled.button`
@@ -81,10 +53,8 @@ const Cart = ({ doOpen }) => {
   );
 
   return (
-    <Animate {...{ doOpen, animationDuration: 500 }}>
-      <StyledCart className="cart">
-        {total}
-
+    <Animate {...{ doOpen, animationDuration: 700 }}>
+      <StyledCart>
         {cart.map((album, index) => (
           <CartItem key={index} {...album}>
             <RemoveButton onClick={() => removeFromCartHandler({ index })}>
@@ -92,6 +62,8 @@ const Cart = ({ doOpen }) => {
             </RemoveButton>
           </CartItem>
         ))}
+        {total}
+
         <CloseCartButton onClick={toggleCart}>X</CloseCartButton>
       </StyledCart>
       <CartBg key="bg" />

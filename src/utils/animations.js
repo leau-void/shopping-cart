@@ -72,11 +72,37 @@ const animationCloseCart = keyframes`
 `;
 
 const animationRuleOpenCart = css`
-  ${animationOpenCart} 0.5s ease-in-out forwards
+  ${animationOpenCart} 0.7s ease-in-out forwards
 `;
 
 const animationRuleCloseCart = css`
-  ${animationCloseCart} 0.5s ease-in-out forwards
+  ${animationCloseCart} 0.7s ease-in-out forwards
+`;
+
+const animationOpenCartBg = keyframes`
+0% {
+  transform: translateX(calc(-100vw - 100%))
+}
+100% {
+  transform: translateX(0vw);
+}
+`;
+
+const animationCloseCartBg = keyframes`
+0% {
+  transform: translateX(0vw);
+}
+100% {
+  transform: translateX(calc(-100vw - 100%))
+}
+`;
+
+const animationRuleOpenCartBg = css`
+  ${animationOpenCartBg} 0.7s ease-in-out forwards
+`;
+
+const animationRuleCloseCartBg = css`
+  ${animationCloseCartBg} 0.7s ease-in-out forwards
 `;
 
 export {
@@ -85,4 +111,6 @@ export {
   animationRuleRemoveFromCartButton,
   animationRuleOpenCart,
   animationRuleCloseCart,
+  animationRuleOpenCartBg,
+  animationRuleCloseCartBg,
 };

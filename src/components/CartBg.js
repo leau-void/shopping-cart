@@ -1,56 +1,29 @@
 import React, { useContext } from "react";
-import { motion } from "framer-motion";
 import styled from "styled-components";
 import CartContext from "../context/CartContext";
+import {
+  animationRuleOpenCartBg,
+  animationRuleCloseCartBg,
+} from "../utils/animations";
 
-const StyledBg = styled(motion.div)`
+const StyledBg = styled.div`
   height: 100vh;
   width: 100vw;
   background: #393e46aa;
   opacity: 0.4;
   position: fixed;
   z-index: 10;
+  animation: ${animationRuleOpenCartBg};
+
+  &.closing {
+    animation: ${animationRuleCloseCartBg};
+  }
 `;
 
-const ForwardedBg = React.forwardRef((props, ref) => (
-  <StyledBg ref={ref} {...props} />
-));
-const MotionBg = motion(ForwardedBg);
-
-const bgVariant = {
-  initial: {
-    x: "-100vw",
-    y: 0,
-  },
-  in: {
-    x: ["-100vw", "0vw"],
-
-    transition: {
-      type: "tween",
-      duration: 0.3,
-    },
-  },
-  out: {
-    x: "-100vw",
-    transition: {
-      type: "tween",
-      duration: 0.3,
-    },
-  },
-};
-
-const CartBg = () => {
+const CartBg = ({ className }) => {
   const { toggleCart } = useContext(CartContext);
 
-  return (
-    <MotionBg
-      onClick={toggleCart}
-      variants={bgVariant}
-      initial="initial"
-      animate="in"
-      exit="out"
-    />
-  );
+  return <StyledBg {...{ className }} onClick={toggleCart} />;
 };
 
 export default CartBg;
