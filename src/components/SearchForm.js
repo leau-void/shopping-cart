@@ -44,6 +44,7 @@ const SearchInput = styled.input.attrs(() => ({
   border-right: 0;
   transition: border-color 0.2s;
   background: #eeeeee;
+  margin-top: 0.5rem;
 
   &:focus {
     border-color: #00adb5;
