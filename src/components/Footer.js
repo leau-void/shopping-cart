@@ -13,6 +13,7 @@ const StyledFooter = styled.footer`
 
 const StyledGithubLink = styled.a.attrs(() => ({
   href: "https://github.com/leau-void/shopping-cart",
+  target: "_blank",
 }))`
   opacity: 0.7;
   &:hover {

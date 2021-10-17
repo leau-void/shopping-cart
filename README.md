@@ -48,16 +48,18 @@ npm start
 ## Preview
 
 ### Desktop
-[![Storefront](demo/homepage.png)](https://leau-void.github.io/shopping-cart/)
-
-[![Storefront](demo/storefront.png)](https://leau-void.github.io/shopping-cart/)
-
-[![Storefront](demo/cart.png)](https://leau-void.github.io/shopping-cart/)
+<div align="center">
+<a href="https://leau-void.github.io/shopping-cart/"><img src="./demo/homepage.png" alt="Homepage" width="85%"/></a>
+<a href="https://leau-void.github.io/shopping-cart/"><img src="./demo/storefront.png" alt="Storefront" width="85%"/></a>
+<a href="https://leau-void.github.io/shopping-cart/"><img src="./demo/cart.png" alt="Cart" width="85%"/></a>
+</div>
 
 ### Mobile 
-[<img src="./demo/homepage-mobile.png" width="32%"/>](https://leau-void.github.io/shopping-cart/)
-[<img src="./demo/storefront-mobile.png" width="32%"/>](https://leau-void.github.io/shopping-cart/)
-[<img src="./demo/cart-mobile.png" width="32%"/>](https://leau-void.github.io/shopping-cart/)
+<div align="center">
+<a href="https://leau-void.github.io/shopping-cart/"><img src="./demo/homepage-mobile.png" alt="Homepage" width="32%"/></a>
+<a href="https://leau-void.github.io/shopping-cart/"><img src="./demo/storefront-mobile.png" alt="Storefront" width="32%"/></a>
+<a href="https://leau-void.github.io/shopping-cart/"><img src="./demo/cart-mobile.png" alt="Cart" width="32%"/></a>
+</div>
 
 ## Contact
 
