@@ -7,10 +7,7 @@ import CartButton from "./CartButton";
 const StyledHeader = styled.header`
   background: #393e46;
   color: #eeeeee;
-  padding: 0.5rem;
-  @media (min-width: 450px) {
-    padding: 1rem;
-  }
+  padding: 1rem;
 `;
 
 const Nav = styled("nav")`
@@ -24,12 +21,9 @@ const Name = styled(Link)`
   display: flex;
   gap: 1rem;
   text-decoration: none;
-  font-size: 2rem;
+  font-size: 2.7rem;
   color: inherit;
-
-  @media (min-width: 450px) {
-    font-size: 2.5rem;
-  }
+  align-items: center;
 
   @media (min-width: 550px) {
     margin-right: 10rem;
@@ -38,8 +32,9 @@ const Name = styled(Link)`
 `;
 
 const Logo = styled(Music)`
-  width: 1.5rem;
+  width: 2.2rem;
   transition: color 0.3s ease-out;
+  margin: 0.5rem;
 
   .shopName:hover & {
     color: #00adb5;

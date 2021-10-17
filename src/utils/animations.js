@@ -1,4 +1,4 @@
-import styled, { css, keyframes } from "styled-components";
+import { css, keyframes } from "styled-components";
 
 const animationVisitShopEnter = keyframes`
 0% {
@@ -72,22 +72,6 @@ const animationRuleAddToCartButtonExit = css`
   ${animationAddToCartButtonExit} 1s ease-in normal forwards;
 `;
 
-const animationRemoveFromCartButton = keyframes`
-0% {
-  transform: rotateX(0deg)
-}
-50% {
-  transform: rotateX(180deg)
-}
-100% {
-  transform: rotateX(0deg)
-}
-`;
-
-const animationRuleRemoveFromCartButton = css`
-  ${animationRemoveFromCartButton} 2s infinite alternate
-`;
-
 const animationOpenCart = keyframes`
 0% {
   right: -100%;
@@ -143,7 +127,6 @@ const animationRuleCloseCartBg = css`
 export {
   animationRuleAddToCartButtonEnter,
   animationRuleAddToCartButtonExit,
-  animationRuleRemoveFromCartButton,
   animationRuleOpenCart,
   animationRuleCloseCart,
   animationRuleOpenCartBg,

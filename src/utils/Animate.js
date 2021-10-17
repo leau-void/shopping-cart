@@ -9,7 +9,7 @@ const Animate = ({ children, doOpen, animationDuration }) => {
     } else {
       window.setTimeout(() => setIsOpen(doOpen), animationDuration);
     }
-  }, [doOpen]);
+  }, [doOpen, animationDuration]);
 
   return (
     isOpen && (

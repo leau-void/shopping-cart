@@ -4,7 +4,6 @@ import CartBg from "./CartBg";
 import CartItem from "./CartItem";
 import CartContext from "../context/CartContext";
 import {
-  animationRuleRemoveFromCartButton,
   animationRuleOpenCart,
   animationRuleCloseCart,
 } from "../utils/animations";
