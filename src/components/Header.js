@@ -24,11 +24,16 @@ const Name = styled(Link)`
   display: flex;
   gap: 1rem;
   text-decoration: none;
-  font-size: 3rem;
+  font-size: 2rem;
   color: inherit;
+
+  @media (min-width: 450px) {
+    font-size: 2.5rem;
+  }
 
   @media (min-width: 550px) {
     margin-right: 10rem;
+    font-size: 3rem;
   }
 `;
 

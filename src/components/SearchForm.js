@@ -19,7 +19,7 @@ const Select = styled.select`
   background: #eeeeee;
   border-radius: 3px;
   -webkit-border-radius: 3px;
-  margin: 0.5rem 0;
+  margin: 0.5rem;
 
   &:active {
     border-color: #00adb5;
