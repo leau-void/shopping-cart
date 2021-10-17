@@ -26,7 +26,6 @@ const Name = styled(Link)`
   text-decoration: none;
   font-size: 3rem;
   color: inherit;
-  margin-right: 1rem;
 
   @media (min-width: 550px) {
     margin-right: 10rem;
