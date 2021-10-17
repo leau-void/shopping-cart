@@ -38,11 +38,15 @@ const Name = styled(Link)`
 `;
 
 const Logo = styled(Music)`
-  width: 2.5rem;
+  width: 1.5rem;
   transition: color 0.3s ease-out;
 
   .shopName:hover & {
     color: #00adb5;
+  }
+
+  @media (min-width: 450px) {
+    width: 2.5rem;
   }
 `;
 
