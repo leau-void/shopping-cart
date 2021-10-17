@@ -24,7 +24,6 @@ const StyledCart = styled("div")`
   flex-direction: column;
   align-items: stretch;
   justify-content: center;
-  gap: 1.5rem;
 
   &.closing {
     animation: ${animationRuleCloseCart};
@@ -43,11 +42,10 @@ const StyledCart = styled("div")`
 const Title = styled.h2`
   border-radius: 3px;
   border-bottom: 2px solid #00adb5;
-  margin: 0;
   padding: 2rem;
   padding-top: 0;
   text-align: center;
-  margin-bottom: -1.5rem;
+  margin: 1rem 0;
 `;
 
 const CartButton = styled.button`
@@ -65,6 +63,8 @@ const CartButton = styled.button`
   align-self: center;
   padding: 0.7rem;
   font-size: 1.3rem;
+  margin: 1rem 0;
+
   &:hover {
     background-position-y: 100%;
   }
@@ -91,6 +91,7 @@ const Total = styled.div`
   text-align: center;
   font-weight: 500;
   font-size: 1.2rem;
+  margin: 1rem 0;
 `;
 
 const RemoveButton = styled.button`

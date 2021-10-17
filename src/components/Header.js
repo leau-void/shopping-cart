@@ -7,7 +7,10 @@ import CartButton from "./CartButton";
 const StyledHeader = styled.header`
   background: #393e46;
   color: #eeeeee;
-  padding: 1rem;
+  padding: 0.5rem;
+  @media (min-width: 450px) {
+    padding: 1rem;
+  }
 `;
 
 const Nav = styled("nav")`

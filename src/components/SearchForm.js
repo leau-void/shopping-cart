@@ -17,6 +17,8 @@ const Select = styled.select`
   border: 2px solid #393e46;
   transition: border-color 0.2s;
   background: #eeeeee;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
 
   &:active {
     border-color: #00adb5;
@@ -36,6 +38,7 @@ const SearchInput = styled.input.attrs(() => ({
   outline: none;
   padding: 0.5rem;
   border-radius: 3px 0 0 3px;
+  -webkit-border-radius: 3px 0 0 3px;
   border: 0;
   border: 2px solid #393e46;
   border-right: 0;
