@@ -19,6 +19,7 @@ const Select = styled.select`
   background: #eeeeee;
   border-radius: 3px;
   -webkit-border-radius: 3px;
+  margin: 0.5rem 0;
 
   &:active {
     border-color: #00adb5;
@@ -29,7 +30,7 @@ const Option = styled.option``;
 
 const SearchBar = styled.div`
   display: flex;
-  margin-top: 0.5rem;
+  margin: 0.5rem 0;
 `;
 
 const SearchInput = styled.input.attrs(() => ({
@@ -78,7 +79,7 @@ const SearchForm = ({
 }) => {
   return (
     <Form>
-      <label>Search by</label>
+      <label style={{ margin: "0.5rem 0" }}>Search by</label>
       <Select defaultValue="albumTerm" onChange={fetchAttrChange}>
         <Option value="albumTerm">Album</Option>
         <Option value="artistTerm">Artist</Option>
