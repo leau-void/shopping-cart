@@ -42,6 +42,7 @@ const ItemPrice = styled.div`
 `;
 
 const CartItem = ({ album, children }) => {
+  console.log(album);
   const { artworkUrl100, collectionName, artistName, collectionPrice } = album;
   return (
     <StyledItem>
@@ -51,7 +52,9 @@ const CartItem = ({ album, children }) => {
         <ArtistName>{artistName}</ArtistName>
       </WrapColumn>
       <WrapColumn>
-        <ItemPrice>${collectionPrice}</ItemPrice>
+        <ItemPrice>
+          ${collectionPrice ? collectionPrice.toFixed(2) : "0.00"}
+        </ItemPrice>
         {children}
       </WrapColumn>
     </StyledItem>

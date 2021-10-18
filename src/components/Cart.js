@@ -119,7 +119,7 @@ const Cart = ({ doOpen }) => {
   const { cart, toggleCart, removeFromCartHandler } = useContext(CartContext);
 
   const total = cart
-    .reduce((acc, currentItem) => acc + currentItem.collectionPrice, 0)
+    .reduce((acc, currentItem) => acc + (currentItem.collectionPrice || 0), 0)
     .toFixed(2);
 
   return (

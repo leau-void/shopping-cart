@@ -47,7 +47,9 @@ const AlbumCard = ({ album, children }) => {
       <Artwork {...{ url: artworkUrl100 }} />
       <AlbumName>{collectionName}</AlbumName>
       <ArtistName>{artistName}</ArtistName>
-      <ItemPrice>${collectionPrice}</ItemPrice>
+      <ItemPrice>
+        ${collectionPrice ? collectionPrice.toFixed(2) : "0.00"}
+      </ItemPrice>
       {children}
     </StyledCard>
   );
