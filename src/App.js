@@ -61,9 +61,10 @@ const App = () => {
 
   useEffect(() => {
     const { attribute = "albumTerm", term = "hymn" } = search;
+    const limit = Math.round(Math.random() * 10 + 40);
 
     fetchData(
-      `https://itunes.apple.com/search?media=music&entity=album&limit=50&term=${term}&attribute=${attribute}&callback=emitData`
+      `https://itunes.apple.com/search?media=music&entity=album&limit=${limit}&term=${term}&attribute=${attribute}&callback=emitData`
     );
 
     window.addEventListener("newData", updateProducts);
