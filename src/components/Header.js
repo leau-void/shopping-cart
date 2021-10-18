@@ -7,12 +7,18 @@ import CartButton from "./CartButton";
 const StyledHeader = styled.header`
   background: #393e46;
   color: #eeeeee;
-  padding: 1rem;
+  height: 15vh;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 99;
 `;
 
 const Nav = styled("nav")`
   display: flex;
   width: 100%;
+  height: 15vh;
+  padding: 1rem;
   justify-content: space-evenly;
   align-items: center;
 `;
