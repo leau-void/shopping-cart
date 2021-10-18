@@ -10,6 +10,7 @@ const StyledHeader = styled.header`
   height: 15vh;
   position: fixed;
   width: 100vw;
+  max-width: 100vw;
   top: 0;
   z-index: 98;
 `;
