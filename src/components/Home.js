@@ -6,13 +6,14 @@ import { Link } from "react-router-dom";
 import { animationRuleVisitShop } from "../utils/animations";
 
 const StyledHome = styled(motion.div)`
-  max-height: 75vh;
-  height: 75vh;
+  max-height: 70vh;
+  height: 70vh;
   background: radial-gradient(circle, rgba(0, 173, 181, 1), #eeeeee 35%);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  margin-top: auto;
 `;
 
 const Logo = styled(Music)`
