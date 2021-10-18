@@ -81,21 +81,8 @@ const animationOpenCart = keyframes`
 }
 `;
 
-const animationCloseCart = keyframes`
-0% {
-  right: 0;
-}
-100% {
-  right: -100%;
-}
-`;
-
 const animationRuleOpenCart = css`
   ${animationOpenCart} 0.7s ease-in-out forwards
-`;
-
-const animationRuleCloseCart = css`
-  ${animationCloseCart} 0.7s ease-in-out forwards
 `;
 
 const animationOpenCartBg = keyframes`
@@ -107,29 +94,14 @@ const animationOpenCartBg = keyframes`
 }
 `;
 
-const animationCloseCartBg = keyframes`
-0% {
-  left: 0;
-}
-100% {
-  left: -100%;
-}
-`;
-
 const animationRuleOpenCartBg = css`
   ${animationOpenCartBg} 0.7s ease-in-out forwards
-`;
-
-const animationRuleCloseCartBg = css`
-  ${animationCloseCartBg} 0.7s ease-in-out forwards
 `;
 
 export {
   animationRuleAddToCartButtonEnter,
   animationRuleAddToCartButtonExit,
   animationRuleOpenCart,
-  animationRuleCloseCart,
   animationRuleOpenCartBg,
-  animationRuleCloseCartBg,
   animationRuleVisitShop,
 };

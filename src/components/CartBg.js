@@ -1,10 +1,7 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import CartContext from "../context/CartContext";
-import {
-  animationRuleOpenCartBg,
-  animationRuleCloseCartBg,
-} from "../utils/animations";
+import { animationRuleOpenCartBg } from "../utils/animations";
 
 const StyledBg = styled.div`
   height: 100vh;
@@ -12,11 +9,17 @@ const StyledBg = styled.div`
   background: #393e46aa;
   opacity: 0.4;
   position: fixed;
+  left: 0;
   z-index: 10;
   animation: ${animationRuleOpenCartBg};
 
+  &.closing-setup {
+    animation: none;
+  }
+
   &.closing {
-    animation: ${animationRuleCloseCartBg};
+    animation: ${animationRuleOpenCartBg};
+    animation-direction: reverse;
   }
 `;
 

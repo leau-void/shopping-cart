@@ -3,10 +3,7 @@ import styled from "styled-components";
 import CartBg from "./CartBg";
 import CartItem from "./CartItem";
 import CartContext from "../context/CartContext";
-import {
-  animationRuleOpenCart,
-  animationRuleCloseCart,
-} from "../utils/animations";
+import { animationRuleOpenCart } from "../utils/animations";
 import Animate from "../utils/Animate";
 
 const StyledCart = styled("div")`
@@ -16,6 +13,7 @@ const StyledCart = styled("div")`
   padding: 5%;
   background: #222831;
   position: absolute;
+  right: 0;
   z-index: 15;
   animation: ${animationRuleOpenCart};
   color: #eeeeee;
@@ -24,8 +22,13 @@ const StyledCart = styled("div")`
   align-items: stretch;
   justify-content: center;
 
+  &.closing-setup {
+    animation: none;
+  }
+
   &.closing {
-    animation: ${animationRuleCloseCart};
+    animation: ${animationRuleOpenCart};
+    animation-direction: reverse;
   }
 
   @media (min-width: 550px) {
