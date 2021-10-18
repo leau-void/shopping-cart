@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const StyledItem = styled.div`
   width: 100%;
-  min-height: 200px;
+  min-height: 120px;
   padding: 1rem;
   gap: 0.5rem;
   display: flex;
@@ -42,8 +42,8 @@ const ItemPrice = styled.div`
 `;
 
 const CartItem = ({ album, children }) => {
-  console.log(album);
   const { artworkUrl100, collectionName, artistName, collectionPrice } = album;
+
   return (
     <StyledItem>
       <Artwork {...{ url: artworkUrl100 }} />

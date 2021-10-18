@@ -12,9 +12,11 @@ const StyledCart = styled("div")`
   width: 100%;
   padding: 5%;
   background: #222831;
-  position: absolute;
+  position: fixed;
+  height: 100vh;
   right: 0;
-  z-index: 15;
+  top: 0;
+  z-index: 99;
   animation: ${animationRuleOpenCart};
   color: #eeeeee;
   display: flex;
@@ -50,6 +52,12 @@ const Title = styled.h2`
   margin: 1rem 0;
 `;
 
+const ItemTray = styled.div`
+  min-height: 50vh;
+  max-height: 50vh;
+  overflow-y: scroll;
+`;
+
 const CartButton = styled.button`
   --main-color: #393e46;
   --hover-color: #00adb5;
@@ -65,7 +73,7 @@ const CartButton = styled.button`
   align-self: center;
   padding: 0.7rem;
   font-size: 1.3rem;
-  margin: 1rem 0;
+  margin: 0.5rem 0;
 
   &:hover {
     background-position-y: 100%;
@@ -126,15 +134,17 @@ const Cart = ({ doOpen }) => {
     <Animate {...{ doOpen, animationDuration: 700 }}>
       <StyledCart>
         <Title>Your shopping bag</Title>
-        <div>
-          {cart.map((album, index) => (
-            <CartItem key={index} {...{ album }}>
-              <RemoveButton onClick={() => removeFromCartHandler({ index })}>
-                Remove
-              </RemoveButton>
-            </CartItem>
-          ))}
-        </div>
+        {!!cart.length && (
+          <ItemTray>
+            {cart.map((album, index) => (
+              <CartItem key={index} {...{ album }}>
+                <RemoveButton onClick={() => removeFromCartHandler({ index })}>
+                  Remove
+                </RemoveButton>
+              </CartItem>
+            ))}
+          </ItemTray>
+        )}
 
         <Total>Total: ${total}</Total>
 
